@@ -5,15 +5,15 @@ export default function TaskList({tasks, updateTask, deleteTask}) {
     }
 
     return(
-        <ul>
+        <ul className="unordered-container">
             {tasks.map((task, index) => (
-                <li key={index}>
-                    <div>
+                <li className="task-list" key={index}>
+                    <div className="task-list-attributes">
                         <span>{task.text}
                             <small>({task.priority},{task.category})</small>
                         </span>
                     </div>
-                    <div>
+                    <div className="task-list-buttons">
                         <button onClick={() => toggleComplete(index)}>{task.completed ? "Undo" : "Completed"}</button>
                         <button onClick={() => deleteTask(index)}>Delete</button>
                     </div>

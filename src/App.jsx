@@ -3,7 +3,7 @@ import TaskList from "./Components/Tasklist";
 import ProgressTracker from "./Components/ProgressTracker";
 import { useEffect } from "react";
 import { useState } from "react";
-import "./Style.css";
+import "./Style2.css";
 
 function App() {
   
@@ -23,15 +23,22 @@ function App() {
       setTasks(tasks.filter((_, i) => i != index));
   }
 
+  const clearTasks = () => {
+    setTasks([]);
+  }
+
   return(
-    <div>
-      <h1>Task Focus</h1>
-      <p>Our friendly Task Manager</p>
+    <div className="app-shell">
+      <div className="heading">
+        <h1>Task Focus</h1>
+        <p>Our friendly Task Manager</p>
+      </div>
       <TaskForm addTask = {addTask} />
       <TaskList tasks = {tasks }
       updateTask = {updateTask}
       deleteTask = {deleteTask}/>
       <ProgressTracker tasks = {tasks}/>
+      <button onClick={clearTasks}>Clear All Tasks</button>
     </div>
   )
 }
