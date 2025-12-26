@@ -15,13 +15,12 @@ function TaskForm({addTask}) {
         setCategory('general');
     }
     return(
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <input type="text" id="task" name="task" placeholder="Enter the task" value={task} onChange={(e) => setTask(e.target.value)}/>
                 <button type="submit">Add Task</button>
                 <h1>{task} {priority} {category}</h1>
             </div>
-
             <div>
                 <select id="priority" name="priority" value={priority} onChange={(e) => setPriority(e.target.value)}>
                     <option value="high">High</option>
